@@ -17,4 +17,14 @@ class DogsController < ApplicationController
     @dog = Dog.find_by(id: params[:id])
     render :show
   end
+
+  def update
+    @dog = Dog.find_by(id: params[:id])
+    @dog.update(
+      name:params[:name] || @dog.name,
+      size:params[:size] || @dog.size,
+      origin:params[:origin] || @dog.origin,
+    )
+    render :show
+  end
 end

@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   get "/dogs" => "dogs#index"
   post "/dogs" => "dogs#create"
   get "/dogs/:id" => "dogs#show"
+  patch "/dogs/:id" => "dogs#update"
 end
 
