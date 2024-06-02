@@ -15,4 +15,12 @@ class DogsControllerTest < ActionDispatch::IntegrationTest
       assert_response 200
     end
   end
+
+  test "show" do
+    get "/dogs/#{Dog.first.id}.json"
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal ["id", "name", "size", "origin", "created_at", "updated_at"], data.keys
+  end
 end
